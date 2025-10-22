@@ -1,30 +1,30 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import { onMounted } from 'vue';
+import { useWeatherStore } from './stores/weather';
+import WeatherDisplay from './components/WeatherDisplay.vue';
+import LocationSearch from './components/LocationSearch.vue';
+import FavoriteLocations from './components/FavoriteLocations.vue';
+
+const weatherStore = useWeatherStore();
+
+onMounted(() => {
+  weatherStore.loadRandomWeather();
+});
 </script>
-
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+    <h1 class="text-4xl font-bold text-gray-800 mb-8">Not Your Weather</h1>
+    <div class="w-full flex gap-4 justify-center">
+      <div v-if="weatherStore.hasFavorites" class="w-1/3 max-w-md bg-white rounded-lg shadow-md p-2 space-y-6">
+        <FavoriteLocations />
+      </div>
+      <div class="w-1/2 max-w-md bg-white rounded-lg shadow-md p-6 space-y-6">
+        <LocationSearch />
+        <WeatherDisplay />
+      </div>
+    </div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
-
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+/* Add any specific styles for App.vue here */
 </style>
