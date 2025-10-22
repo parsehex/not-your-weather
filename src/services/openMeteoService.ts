@@ -1,10 +1,6 @@
 import { fetchWeatherApi } from 'openmeteo';
 import type { Location, WeatherData } from '../types';
 
-// Helper function to form time ranges
-const range = (start: number, stop: number, step: number) =>
-	Array.from({ length: (stop - start) / step }, (_, i) => start + i * step);
-
 export async function fetchWeather(location: Location): Promise<WeatherData> {
 	const params = {
 		latitude: [location.latitude],

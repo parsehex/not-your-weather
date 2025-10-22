@@ -3,7 +3,7 @@ import { storeToRefs } from 'pinia';
 import { HeartPlus, HeartMinus } from 'lucide-vue-next';
 import { Button } from '@/components/ui/button';
 import { useWeatherStore } from '../stores/weather';
-import { computed, ref, watch } from 'vue';
+import { ref, watch } from 'vue';
 
 const weatherStore = useWeatherStore();
 const { currentWeather, isLoading, error } = storeToRefs(weatherStore);

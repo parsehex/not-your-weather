@@ -25,7 +25,7 @@ const performSearch = async () => {
 	}
 };
 
-watch(searchTerm, (newSearchTerm) => {
+watch(searchTerm, () => {
 	if (searchTimeout.value) {
 		clearTimeout(searchTimeout.value);
 	}
