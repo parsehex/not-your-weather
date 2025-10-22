@@ -23,8 +23,8 @@ onMounted(() => {
         <WeatherDisplay />
       </div>
     </div>
+    <footer class="mt-8 text-gray-600 text-sm">
+      Weather and Geocoding data provided by <a href="https://open-meteo.com/" target="_blank" class="text-blue-500 hover:underline">Open-Meteo.com</a>
+    </footer>
   </div>
 </template>
-<style scoped>
-/* Add any specific styles for App.vue here */
-</style>
